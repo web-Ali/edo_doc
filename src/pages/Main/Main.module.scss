@@ -1,0 +1,50 @@
+
+.app{
+  position: relative;
+  display: grid;
+  grid-template-columns: 300px 1fr;
+  grid-template-rows: 100vh;
+  transition: .2s all;
+  &.hideMenu{
+    grid-template-columns: 80px 1fr;
+  }
+  .shadow{
+    position: absolute;
+    left: 300px;
+    width: 100%;
+    height: 100%;
+    z-index: 100;
+    top: 0;
+    background-color: rgba(0,0,0,0.5);
+    display: none;
+  }
+  @media (max-width: 900px) {
+    .shadow{
+      display: block;
+    }
+    &.hideMenu{
+      grid-template-columns: 0 1fr;
+      .shadow{
+        display: none;
+      }
+    }
+
+  }
+  @media (max-width: 400px) {
+    grid-template-columns: 250px 1fr;
+    .shadow{
+      left: 250px;
+    }
+  }
+}
+.content{
+  background-color: var(--white-color);
+  padding: 16px;
+  max-width: 100%;
+  main{
+    padding-right: 5px;
+  }
+  @media (max-width: 400px) {
+    padding: 2px;
+  }
+}
